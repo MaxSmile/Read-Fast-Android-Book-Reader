@@ -1,24 +1,16 @@
-package com.github.axet.bookreader.activities;
+package com.vasilkoff.readfast.activities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.widget.Toolbar;
 
 import com.github.axet.androidlibrary.activities.AppCompatFullscreenThemeActivity;
-import com.github.axet.bookreader.R;
-import com.github.axet.bookreader.app.BookApplication;
+import com.vasilkoff.readfast.R;
+import com.vasilkoff.readfast.app.BookApplication;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class FullscreenActivity extends AppCompatFullscreenThemeActivity {

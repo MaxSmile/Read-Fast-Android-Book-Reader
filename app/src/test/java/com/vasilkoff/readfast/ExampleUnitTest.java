@@ -1,4 +1,4 @@
-package com.github.axet.bookreader;
+package com.vasilkoff.readfast;
 
 import org.junit.Test;
 

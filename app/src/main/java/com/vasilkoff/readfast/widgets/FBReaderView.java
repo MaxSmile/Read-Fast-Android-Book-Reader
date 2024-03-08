@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -22,12 +22,12 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.PowerManager;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.view.ViewCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.ClipboardManager;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -46,12 +46,12 @@ import com.github.axet.androidlibrary.net.HttpClient;
 import com.github.axet.androidlibrary.preferences.AboutPreferenceCompat;
 import com.github.axet.androidlibrary.widgets.PinchView;
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
-import com.github.axet.bookreader.R;
-import com.github.axet.bookreader.app.BookApplication;
-import com.github.axet.bookreader.app.Plugin;
-import com.github.axet.bookreader.app.Reflow;
-import com.github.axet.bookreader.app.Storage;
-import com.github.axet.bookreader.services.ImagesProvider;
+import com.vasilkoff.readfast.R;
+import com.vasilkoff.readfast.app.BookApplication;
+import com.vasilkoff.readfast.app.Plugin;
+import com.vasilkoff.readfast.app.Reflow;
+import com.vasilkoff.readfast.app.Storage;
+import com.vasilkoff.readfast.services.ImagesProvider;
 import com.github.johnpersano.supertoasts.SuperActivityToast;
 import com.github.johnpersano.supertoasts.SuperToast;
 import com.github.johnpersano.supertoasts.util.OnClickWrapper;
@@ -814,15 +814,15 @@ public class FBReaderView extends RelativeLayout {
                     View v = new View(fb.getContext());
                     v.setLayoutParams(lp);
                     v.setTag(r);
-                    v.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (l.index != -1)
-                                fb.app.runAction(ActionCode.PROCESS_HYPERLINK, new BookModel.Label(null, l.index));
-                            else
-                                AboutPreferenceCompat.openUrlDialog(fb.getContext(), l.url);
-                        }
-                    });
+//                    v.setOnClickListener(new OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            if (l.index != -1)
+//                                fb.app.runAction(ActionCode.PROCESS_HYPERLINK, new BookModel.Label(null, l.index));
+//                            else
+//                                AboutPreferenceCompat.openUrlDialog(fb.getContext(), l.url);
+//                        }
+//                    });
                     links.add(v);
                     fb.addView(v);
                 }
@@ -914,21 +914,21 @@ public class FBReaderView extends RelativeLayout {
                     WordView v = new WordView(fb.getContext());
                     v.setLayoutParams(lp);
                     v.setTag(r);
-                    v.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            BookmarkPopup b = new BookmarkPopup(v, l, bmv) {
-                                @Override
-                                public void onDelete(Storage.Bookmark l) {
-                                    fb.book.info.bookmarks.remove(l);
-                                    fb.bookmarksUpdate();
-                                    if (fb.listener != null)
-                                        fb.listener.onBookmarksUpdate();
-                                }
-                            };
-                            b.show();
-                        }
-                    });
+//                    v.setOnClickListener(new OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            BookmarkPopup b = new BookmarkPopup(v, l, bmv) {
+//                                @Override
+//                                public void onDelete(Storage.Bookmark l) {
+//                                    fb.book.info.bookmarks.remove(l);
+//                                    fb.bookmarksUpdate();
+//                                    if (fb.listener != null)
+//                                        fb.listener.onBookmarksUpdate();
+//                                }
+//                            };
+//                            b.show();
+//                        }
+//                    });
                     int color = l.color == 0 ? fb.app.BookTextView.getHighlightingBackgroundColor().intValue() : l.color;
                     v.setBackgroundColor(SelectionView.SELECTION_ALPHA << 24 | (color & 0xffffff));
                     bmv.add(v);
@@ -985,7 +985,7 @@ public class FBReaderView extends RelativeLayout {
         @Override
         public void addView(View v) {
             super.addView(v);
-            v.setOnClickListener(null);
+            //v.setOnClickListener(null);
         }
     }
 
@@ -1139,14 +1139,14 @@ public class FBReaderView extends RelativeLayout {
     }
 
     public void configColorProfile(SharedPreferences shared) {
-        if (shared.getString(BookApplication.PREFERENCE_THEME, "").equals(getContext().getString(R.string.Theme_Dark))) {
-            config.setValue(app.ViewOptions.ColorProfileName, ColorProfile.NIGHT);
-        } else {
-            config.setValue(app.ViewOptions.ColorProfileName, ColorProfile.DAY);
-            ColorProfile p = ColorProfile.get(ColorProfile.DAY);
-            config.setValue(p.BackgroundOption, 0xF5E5CC);
-            config.setValue(p.WallpaperOption, "");
-        }
+//        if (shared.getString(BookApplication.PREFERENCE_THEME, "").equals(getContext().getString(R.string.Theme_Dark))) {
+//            config.setValue(app.ViewOptions.ColorProfileName, ColorProfile.NIGHT);
+//        } else {
+//            config.setValue(app.ViewOptions.ColorProfileName, ColorProfile.DAY);
+//            ColorProfile p = ColorProfile.get(ColorProfile.DAY);
+//            config.setValue(p.BackgroundOption, 0xF5E5CC);
+//            config.setValue(p.WallpaperOption, "");
+//        }
     }
 
     public void configWidget(SharedPreferences shared) {
@@ -1863,8 +1863,8 @@ public class FBReaderView extends RelativeLayout {
 
         WallpaperLayout f = new WallpaperLayout(context);
         ImageButton c = new ImageButton(context);
-        c.setImageResource(R.drawable.ic_close_black_24dp);
-        c.setColorFilter(ThemeUtils.getThemeColor(context, R.attr.colorAccent));
+        c.setImageResource(com.github.axet.androidlibrary.R.drawable.ic_dialog_close_dark);
+        c.setColorFilter(ThemeUtils.getThemeColor(context, com.google.android.material.R.attr.colorAccent));
         f.addView(c, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.RIGHT | Gravity.TOP));
 
         final FBReaderView r = new FBReaderView(context) {
@@ -1934,7 +1934,7 @@ public class FBReaderView extends RelativeLayout {
                 }
             });
         }
-        builder.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
@@ -1957,12 +1957,12 @@ public class FBReaderView extends RelativeLayout {
                 }
             }
         });
-        c.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+//        c.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
         dialog.show();
     }
 

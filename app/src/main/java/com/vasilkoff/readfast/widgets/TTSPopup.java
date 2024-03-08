@@ -1,15 +1,13 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,11 +20,11 @@ import android.widget.RelativeLayout;
 import com.github.axet.androidlibrary.sound.TTS;
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
 import com.github.axet.androidlibrary.widgets.Toast;
-import com.github.axet.bookreader.R;
-import com.github.axet.bookreader.app.BookApplication;
-import com.github.axet.bookreader.app.Plugin;
-import com.github.axet.bookreader.app.Reflow;
-import com.github.axet.bookreader.app.Storage;
+import com.vasilkoff.readfast.R;
+import com.vasilkoff.readfast.app.BookApplication;
+import com.vasilkoff.readfast.app.Plugin;
+import com.vasilkoff.readfast.app.Reflow;
+import com.vasilkoff.readfast.app.Storage;
 
 import org.geometerplus.fbreader.fbreader.TextBuildTraverser;
 import org.geometerplus.zlibrary.core.view.ZLViewEnums;
@@ -42,7 +40,6 @@ import org.geometerplus.zlibrary.text.view.ZLTextWordCursor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 
 public class TTSPopup {
@@ -504,13 +501,13 @@ public class TTSPopup {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.tts_popup, null);
         View left = view.findViewById(R.id.tts_left);
-        left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-                selectPrev();
-            }
-        });
+//        left.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                stop();
+//                selectPrev();
+//            }
+//        });
         View right = view.findViewById(R.id.tts_right);
         right.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -541,7 +538,7 @@ public class TTSPopup {
         int dp20 = ThemeUtils.dp2px(context, 20);
         FrameLayout f = new FrameLayout(context);
         FrameLayout round = new FrameLayout(context);
-        round.setBackgroundResource(R.drawable.panel);
+        //round.setBackgroundResource(R.drawable.panel);
         round.addView(view);
         gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
         f.addView(round, new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT, gravity));

@@ -1,6 +1,5 @@
 package com.vasilkoff.readfast.app;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;

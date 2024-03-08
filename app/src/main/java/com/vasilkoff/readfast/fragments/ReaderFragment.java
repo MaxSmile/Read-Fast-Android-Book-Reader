@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.fragments;
+package com.vasilkoff.readfast.fragments;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -15,10 +15,10 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.core.view.MenuItemCompat;
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -38,20 +38,18 @@ import com.github.axet.androidlibrary.widgets.PopupWindowCompat;
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
 import com.github.axet.androidlibrary.widgets.TreeListView;
 import com.github.axet.androidlibrary.widgets.TreeRecyclerView;
-import com.github.axet.bookreader.BuildConfig;
-import com.github.axet.bookreader.R;
-import com.github.axet.bookreader.activities.FullscreenActivity;
-import com.github.axet.bookreader.activities.MainActivity;
-import com.github.axet.bookreader.app.BookApplication;
-import com.github.axet.bookreader.app.ComicsPlugin;
-import com.github.axet.bookreader.app.Plugin;
-import com.github.axet.bookreader.app.Storage;
-import com.github.axet.bookreader.app.TTFManager;
-import com.github.axet.bookreader.widgets.BookmarksDialog;
-import com.github.axet.bookreader.widgets.FBReaderView;
-import com.github.axet.bookreader.widgets.FontsPopup;
-import com.github.axet.bookreader.widgets.ScrollWidget;
-import com.github.axet.bookreader.widgets.ToolbarButtonView;
+import com.vasilkoff.readfast.R;
+import com.vasilkoff.readfast.activities.FullscreenActivity;
+import com.vasilkoff.readfast.activities.MainActivity;
+import com.vasilkoff.readfast.app.BookApplication;
+import com.vasilkoff.readfast.app.ComicsPlugin;
+import com.vasilkoff.readfast.app.Plugin;
+import com.vasilkoff.readfast.app.Storage;
+import com.vasilkoff.readfast.widgets.BookmarksDialog;
+import com.vasilkoff.readfast.widgets.FBReaderView;
+import com.vasilkoff.readfast.widgets.FontsPopup;
+import com.vasilkoff.readfast.widgets.ScrollWidget;
+import com.vasilkoff.readfast.widgets.ToolbarButtonView;
 
 import org.geometerplus.fbreader.bookmodel.TOCTree;
 import org.geometerplus.fbreader.fbreader.ActionCode;
@@ -83,15 +81,15 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
     Runnable time = new Runnable() {
         @Override
         public void run() {
-            long s60 = 60 * 1000;
-            long secs = System.currentTimeMillis() % s60;
-            handler.removeCallbacks(this);
-            long d = s60 - secs;
-            if (d < 1000)
-                d = s60 + d;
-            handler.postDelayed(this, d);
-            fb.invalidateFooter();
-            savePosition();
+//            long s60 = 60 * 1000;
+//            long secs = System.currentTimeMillis() % s60;
+//            handler.removeCallbacks(this);
+//            long d = s60 - secs;
+//            if (d < 1000)
+//                d = s60 + d;
+//            handler.postDelayed(this, d);
+//            fb.invalidateFooter();
+//            savePosition();
         }
     };
 
@@ -186,16 +184,16 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
                 h.textView.setTypeface(null, Typeface.NORMAL);
             }
             h.textView.setText(tt.getText());
-            h.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TOCTree n = (TOCTree) getItem(h.getAdapterPosition(TOCAdapter.this)).tag;
-                    if (n.hasChildren())
-                        return;
-                    fb.gotoPosition(n.getReference());
-                    tocdialog.dismiss();
-                }
-            });
+//            h.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    TOCTree n = (TOCTree) getItem(h.getAdapterPosition(TOCAdapter.this)).tag;
+//                    if (n.hasChildren())
+//                        return;
+//                    fb.gotoPosition(n.getReference());
+//                    tocdialog.dismiss();
+//                }
+//            });
         }
 
         boolean equals(TOCTree t, TOCTree t2) {
@@ -333,21 +331,21 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
     @Override
     public void onResume() {
         super.onResume();
-        ScreenlockPreference.onResume(getActivity(), BookApplication.PREFERENCE_SCREENLOCK);
+//        ScreenlockPreference.onResume(getActivity(), BookApplication.PREFERENCE_SCREENLOCK);
+//
+//        battery = new BroadcastReceiver() {
+//            public void onReceive(Context context, Intent intent) {
+//                int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+//                int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+//                fb.battery = level * 100 / scale;
+//                fb.invalidateFooter();
+//            }
+//        };
+//        battery.onReceive(getContext(), getContext().registerReceiver(battery, new IntentFilter(Intent.ACTION_BATTERY_CHANGED)));
+//
+//        time.run();
 
-        battery = new BroadcastReceiver() {
-            public void onReceive(Context context, Intent intent) {
-                int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-                int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-                fb.battery = level * 100 / scale;
-                fb.invalidateFooter();
-            }
-        };
-        battery.onReceive(getContext(), getContext().registerReceiver(battery, new IntentFilter(Intent.ACTION_BATTERY_CHANGED)));
-
-        time.run();
-
-        updateTheme(); // MainActivity.restartActivity() not called when double change while ReaderFragment active
+//        updateTheme(); // MainActivity.restartActivity() not called when double change while ReaderFragment active
     }
 
     @Override
@@ -555,7 +553,7 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
             if (v == null || !ViewCompat.isAttachedToWindow(v))
                 v = getOverflowMenuButton(getActivity());
             PopupWindowCompat.showAsTooltip(fontsPopup, v, Gravity.BOTTOM,
-                    ThemeUtils.getThemeColor(getContext(), R.attr.colorButtonNormal), // v has overflow ThemedContext
+                    ThemeUtils.getThemeColor(getContext(), androidx.appcompat.R.attr.colorAccent), // v has overflow ThemedContext
                     ThemeUtils.dp2px(getContext(), 300));
         }
         if (id == R.id.action_rtl) {
@@ -632,39 +630,39 @@ public class ReaderFragment extends Fragment implements MainActivity.SearchListe
         searchMenu.setVisible(search);
         reflow.setVisible(fb.pluginview != null && !(fb.pluginview instanceof ComicsPlugin.ComicsView));
 
-        if (BuildConfig.DEBUG && fb.pluginview != null && !(fb.pluginview instanceof ComicsPlugin.ComicsView))
-            debug.setVisible(true);
-        else
-            debug.setVisible(false);
+//        if (BuildConfig.DEBUG && fb.pluginview != null && !(fb.pluginview instanceof ComicsPlugin.ComicsView))
+//            debug.setVisible(true);
+//        else
+//            debug.setVisible(false);
 
         fontsize.setVisible(fb.pluginview == null || fb.pluginview.reflow);
-        if (fb.pluginview == null)
-            ((ToolbarButtonView) MenuItemCompat.getActionView(fontsize)).text.setText("" + (fb.book == null ? "" : fb.getFontsizeFB())); // call before onCreateView
-        else
-            ((ToolbarButtonView) MenuItemCompat.getActionView(fontsize)).text.setText(String.format("%.1f", getFontsizeReflow()));
-        MenuItemCompat.getActionView(fontsize).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onOptionsItemSelected(fontsize);
-            }
-        });
+//        if (fb.pluginview == null)
+//            ((ToolbarButtonView) MenuItemCompat.getActionView(fontsize)).text.setText("" + (fb.book == null ? "" : fb.getFontsizeFB())); // call before onCreateView
+//        else
+//            ((ToolbarButtonView) MenuItemCompat.getActionView(fontsize)).text.setText(String.format("%.1f", getFontsizeReflow()));
+//        MenuItemCompat.getActionView(fontsize).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onOptionsItemSelected(fontsize);
+//            }
+//        });
 
         mode.setIcon(fb.widget instanceof ScrollWidget ? R.drawable.ic_view_day_black_24dp : R.drawable.ic_view_carousel_black_24dp); // icon current
         mode.setTitle(fb.widget instanceof ScrollWidget ? R.string.view_mode_paging : R.string.view_mode_continuous); // text next
 
         showRTL |= !fb.app.BookTextView.rtlMode && fb.app.BookTextView.rtlDetected;
-        if (showRTL)
-            rtl.setVisible(true);
-        else
-            rtl.setVisible(false);
-        MenuItemCompat.getActionView(rtl).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onOptionsItemSelected(rtl);
-            }
-        });
-        rtl.setTitle(fb.app.BookTextView.rtlMode ? "RTL" : "LTR");
-        ((ToolbarButtonView) MenuItemCompat.getActionView(rtl)).text.setText(fb.app.BookTextView.rtlMode ? "RTL" : "LTR");
+//        if (showRTL)
+//            rtl.setVisible(true);
+//        else
+//            rtl.setVisible(false);
+//        MenuItemCompat.getActionView(rtl).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onOptionsItemSelected(rtl);
+//            }
+//        });
+//        rtl.setTitle(fb.app.BookTextView.rtlMode ? "RTL" : "LTR");
+//       ((ToolbarButtonView) MenuItemCompat.getActionView(rtl)).text.setText(fb.app.BookTextView.rtlMode ? "RTL" : "LTR");
         if (fb.book != null) // call before onCreateView
             bookmarksMenu.setVisible(fb.book.info.bookmarks != null && fb.book.info.bookmarks.size() > 0);
 

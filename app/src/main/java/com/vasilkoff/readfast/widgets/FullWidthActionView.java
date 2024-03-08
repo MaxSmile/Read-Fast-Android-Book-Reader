@@ -1,15 +1,15 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.github.axet.bookreader.R;
+import com.vasilkoff.readfast.R;
 
 public class FullWidthActionView extends FrameLayout {
     public FullWidthActionView(Context context) {
@@ -39,9 +39,9 @@ public class FullWidthActionView extends FrameLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         ViewGroup f = (ViewGroup) getParent(); // FrameLayout
         ViewGroup m = (ViewGroup) f.getParent(); // NavigationMenuItemView
-        View t = m.findViewById(R.id.design_menu_item_text);
-        if (t != null)
-            t.setVisibility(GONE);
+//        View t = m.findViewById(R.id.design_menu_item_text);
+//        if (t != null)
+//            t.setVisibility(GONE);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
-import com.github.axet.bookreader.R;
+import com.vasilkoff.readfast.R;
 
 import org.geometerplus.fbreader.fbreader.FBView;
 import org.geometerplus.fbreader.fbreader.options.ColorProfile;

@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,11 +10,11 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.core.view.GestureDetectorCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -26,10 +26,10 @@ import android.widget.TextView;
 
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
 import com.github.axet.androidlibrary.widgets.TopAlwaysSmoothScroller;
-import com.github.axet.bookreader.app.PDFPlugin;
-import com.github.axet.bookreader.app.Plugin;
-import com.github.axet.bookreader.app.Reflow;
-import com.github.axet.bookreader.app.Storage;
+import com.vasilkoff.readfast.app.PDFPlugin;
+import com.vasilkoff.readfast.app.Plugin;
+import com.vasilkoff.readfast.app.Reflow;
+import com.vasilkoff.readfast.app.Storage;
 
 import org.geometerplus.fbreader.fbreader.FBView;
 import org.geometerplus.fbreader.fbreader.options.PageTurningOptions;

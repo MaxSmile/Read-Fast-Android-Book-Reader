@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.animation.TimeAnimator;
 import android.animation.ValueAnimator;

@@ -50,3 +50,18 @@ If you want to translate 'Book Reader' to your language  please read following:
 ![shot](/docs/shot.png)
 
 
+## How to Contribute
+We welcome contributions of all kinds from the community. To contribute:
+
+1. **Fork the repository** on GitHub.
+2. **Create a new branch** for your changes.
+3. **Make your changes** and test them.
+4. **Submit a pull request** with a clear description of the improvements.
+
+Please ensure your code adheres to the existing style to maintain the project's coherence. For more detailed instructions, please check our contribution guidelines.
+
+## License
+Read Fast - Android Book Reader is provided under the **GNU General Public License v3.0**. It's a copyleft license that allows for derivative work as long as it is under the same license. For more details, see the LICENSE file in the repository.
+
+## Contact
+Should you have any questions, suggestions, or issues, please feel free to contact us at **maxim@vasilkoff.com**. You can also find more contact options and support resources on our website at [vasilkoff.com](https://vasilkoff.com). We're here to assist and appreciate your feedback!

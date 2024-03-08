@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.github.axet.androidlibrary.widgets.ThemeUtils;
-import com.github.axet.bookreader.app.PDFPlugin;
-import com.github.axet.bookreader.app.Plugin;
+import com.vasilkoff.readfast.app.PDFPlugin;
+import com.vasilkoff.readfast.app.Plugin;
 
 import org.geometerplus.zlibrary.core.library.ZLibrary;
 import org.geometerplus.zlibrary.core.view.SelectionCursor;

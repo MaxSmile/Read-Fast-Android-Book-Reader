@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -7,8 +7,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.github.axet.bookreader.app.Plugin;
-import com.github.axet.bookreader.app.Reflow;
+import com.vasilkoff.readfast.app.Plugin;
+import com.vasilkoff.readfast.app.Reflow;
 
 import org.geometerplus.fbreader.fbreader.options.PageTurningOptions;
 import org.geometerplus.zlibrary.core.application.ZLApplication;

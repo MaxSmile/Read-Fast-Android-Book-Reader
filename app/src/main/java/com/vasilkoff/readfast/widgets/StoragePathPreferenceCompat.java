@@ -1,4 +1,4 @@
-package com.github.axet.bookreader.widgets;
+package com.vasilkoff.readfast.widgets;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.github.axet.androidlibrary.widgets.OpenFileDialog;
 import com.github.axet.androidlibrary.widgets.OpenStorageChoicer;
-import com.github.axet.bookreader.R;
-import com.github.axet.bookreader.app.Storage;
+import com.vasilkoff.readfast.R;
+import com.vasilkoff.readfast.app.Storage;
 
 import java.io.File;
 
@@ -53,7 +53,7 @@ public class StoragePathPreferenceCompat extends com.github.axet.androidlibrary.
             public OpenFileDialog fileDialogBuild() {
                 final OpenFileDialog d = super.fileDialogBuild();
 
-                d.setNeutralButton(R.string.default_button, new DialogInterface.OnClickListener() {
+                d.setNeutralButton("R.string.default_button", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         File path = storage.getLocalStorage();
